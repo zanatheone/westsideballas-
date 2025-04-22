@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Westside Ballas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet" />
+</head>
+<body class="landing-page">
+
+
+  <!-- 🔊 Musikplayer + Lautstärkeregler -->
+  <audio id="bg-music" autoplay loop>
+    <source src="audio/background-music.mp3" type="audio/mp3" />
+    Dein Browser unterstützt das Audio-Tag nicht.
+  </audio>
+
+  <div class="custom-volume">
+    <label for="volume">🔊</label>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" />
+  </div>
+
+  <!-- Button zum Starten der Musik -->
+  <button class="bloodin-btn" onclick="document.getElementById('bg-music').play()">🔊 Musik abspielen</button>
+
+  <!-- Bildcollage -->
+  <div class="background-collage">
+    <div style="background-image: url('images/image1.jpg');"></div>
+    <div style="background-image: url('images/image2.jpg');"></div>
+    <div style="background-image: url('images/image3.jpg');"></div>
+    <div style="background-image: url('images/image4.jpg');"></div>
+    <div style="background-image: url('images/image5.jpg');"></div>
+    <div style="background-image: url('images/image6.jpg');"></div>
+    <div style="background-image: url('images/image7.jpg');"></div>
+    <div class="no-hover" style="background-image: url('images/image8.jpg');"></div>
+    <div style="background-image: url('images/image9.jpg');"></div>
+    <div style="background-image: url('images/image10.jpg');"></div>
+    <div style="background-image: url('images/image11.jpg');"></div>
+    <div style="background-image: url('images/image12.jpg');"></div>
+    <div style="background-image: url('images/image13.jpg');"></div>
+    <div style="background-image: url('images/image14.jpg');"></div>
+    <div style="background-image: url('images/image15.jpg');"></div>
+  </div>
+
+<!-- Titel + Button Overlay -->
+<div class="overlay">
+  <h1 class="title">Westside Ballas</h1>
+  <!-- Link-Button zu einer anderen Seite -->
+  <a href="bloodin.html" class="bloodin-btn" onclick="sessionStorage.setItem('audioAllowed', 'true')">🩸 BLOOD IN</a>
+</div>
+
+  <!-- JS für Lautstärkeregler -->
+  <script>
+    const audio = document.getElementById('bg-music');
+    const volumeSlider = document.getElementById('volume');
+
+    window.addEventListener('DOMContentLoaded', () => {
+      audio.volume = volumeSlider.value;
+      audio.muted = false;
+    });
+
+    volumeSlider.addEventListener('input', function () {
+      audio.volume = this.value;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Westside Ballas – Hood</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: 'Rubik Spray Paint', cursive;
+    }
+
+    h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 100px;
+  font-family: 'WestsideBallas', cursive;
+  color: #c56eff;
+  text-shadow:
+    0 0 2px #c56eff,
+    0 0 4px #a637ff,
+    0 0 6px #a637ff;
+}
+
+    .hood-bilder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 60px 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .hood-bilder img {
+      width: 60%;
+      max-width: 800px;
+      border: 2px solid white;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      opacity: 0;
+      transform: scale(0.95);
+    }
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1.8rem;
+  color: #c678ff;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 18px;
+  border-radius: 12px;
+  z-index: 1000;
+  box-shadow: 0 0 10px #c678ff;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+  font-family: 'WestsideBallas', sans-serif;
+  letter-spacing: 1px;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #c678ff;
+  background: rgba(198, 120, 255, 0.1);
+}
+
+    .hood-bilder img.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Mosaik-Hintergrund */
+    .parallax-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .background-collage {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      width: 100%;
+      height: 100%;
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
+    }
+
+    .background-collage > div {
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px) brightness(0.3);
+    }
+  </style>
+</head>
+<body>
+<a class="back-button" href="bloodin.html">← Zurück</a>
+
+  <!-- Parallax-Mosaik -->
+  <div class="parallax-background">
+    <div class="background-collage">
+      <div style="background-image: url('images/image1.jpg');"></div>
+      <div style="background-image: url('images/image2.jpg');"></div>
+      <div style="background-image: url('images/image3.jpg');"></div>
+      <div style="background-image: url('images/image4.jpg');"></div>
+      <div style="background-image: url('images/image5.jpg');"></div>
+      <div style="background-image: url('images/image6.jpg');"></div>
+      <div style="background-image: url('images/image7.jpg');"></div>
+      <div style="background-image: url('images/image8.jpg');"></div>
+      <div style="background-image: url('images/image9.jpg');"></div>
+      <div style="background-image: url('images/image10.jpg');"></div>
+      <div style="background-image: url('images/image11.jpg');"></div>
+      <div style="background-image: url('images/image12.jpg');"></div>
+      <div style="background-image: url('images/image13.jpg');"></div>
+      <div style="background-image: url('images/image14.jpg');"></div>
+      <div style="background-image: url('images/image15.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Inhalt -->
+  <h1>Kleiderordnung</h1>
+  <div class="hood-bilder">
+    <img src="images/kleiderordnung1.png" alt="Kleidung1">
+    <img src="images/kleiderordnung2.png" alt="Kleidung2">
+    <img src="images/kleiderordnung3.png" alt="Kleidung3">
+  </div>
+
+  <script>
+    const collage = document.querySelector('.background-collage');
+    window.addEventListener('scroll', () => {
+      const offset = window.pageYOffset;
+      collage.style.transform = `translateY(${offset * 0.2}px)`;
+    });
+
+    const images = document.querySelectorAll('.hood-bilder img');
+    function revealImages() {
+      const trigger = window.innerHeight * 0.9;
+      images.forEach(img => {
+        const top = img.getBoundingClientRect().top;
+        if (top < trigger) {
+          img.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealImages);
+    window.addEventListener('load', revealImages);
+  </script>
+</body>
+</html>

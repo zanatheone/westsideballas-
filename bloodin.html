@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Westside Ballas – Blood In</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet" />
+</head>
+<body class="bloodin-page">
+<div id="start-overlay">
+  <div class="start-box">
+    <button id="start-button">Neues Spiel</button>
+  </div>
+</div>
+
+  <!-- Parallax-Hintergrund -->
+  <div class="parallax-background">
+    <div class="background-collage">
+      <div style="background-image: url('images/image1.jpg');"></div>
+      <div style="background-image: url('images/image2.jpg');"></div>
+      <div style="background-image: url('images/image3.jpg');"></div>
+      <div style="background-image: url('images/image4.jpg');"></div>
+      <div style="background-image: url('images/image5.jpg');"></div>
+      <div style="background-image: url('images/image6.jpg');"></div>
+      <div style="background-image: url('images/image7.jpg');"></div>
+      <div class="no-hover" style="background-image: url('images/image8.jpg');"></div>
+      <div style="background-image: url('images/image9.jpg');"></div>
+      <div style="background-image: url('images/image10.jpg');"></div>
+      <div style="background-image: url('images/image11.jpg');"></div>
+      <div style="background-image: url('images/image12.jpg');"></div>
+      <div style="background-image: url('images/image13.jpg');"></div>
+      <div style="background-image: url('images/image14.jpg');"></div>
+      <div style="background-image: url('images/image15.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+<nav class="main-nav center-nav">
+  <ul>
+    <li><a href="geschichte.html">Geschichte</a></li>
+    <li><a href="entstehung.html">Entstehung</a></li>
+    <li><a href="gang-codex.html">Gang Codex</a></li>
+    <li><a href="aufnahmeritual.html">Aufnahmeritual</a></li>
+    <li><a href="raenge.html">Ränge</a></li>
+    <li><a href="kleiderordnung.html">Kleiderordnung</a></li>
+    <li><a href="hood.html">Hood</a></li>
+    <li><a href="mitglieder.html">Mitglieder</a></li>
+    <li><a href="Schlusswort.html">Schlusswort</a></li>
+  </ul>
+</nav>
+
+  <!-- Inhalt -->
+  <main class="content">
+   <section id="geschichte"></section>
+<section id="entstehung"></section>
+<section id="gang-codex"></section>
+<section id="aufnahmeritual"></section>
+<section id="raenge"></section>
+<section id="kleiderordnung"></section>
+<section id="hood"></section>
+<section id="mitglieder"></section>
+<section id="Schlusswort"></section>
+  </main>
+<audio id="hover-sound" src="audio/hover-sound.mp3" preload="auto"></audio>
+
+ 
+ <!-- JS direkt eingebaut -->
+
+  <script>
+    // Parallax
+    const collage = document.querySelector('.background-collage');
+    window.addEventListener('scroll', () => {
+      const offset = window.pageYOffset;
+      collage.style.transform = `translateY(${offset * 0.2}px)`; // statt 0.3
+    });
+
+    // Fade-in Effekt
+    const sections = document.querySelectorAll('.content section');
+    function checkScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+  </script>
+<script>
+  const hoverSound = document.getElementById('hover-sound');
+  const navLinks = document.querySelectorAll('.main-nav a');
+
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      hoverSound.currentTime = 0; // zurücksetzen
+      hoverSound.play();
+    });
+  });
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('audioAllowed') === 'true') {
+      const hoverSound = document.getElementById('hover-sound');
+      hoverSound.volume = 0.5; // falls du Lautstärke steuern willst
+      // "Warm-up" trick: ganz kurz abspielen, dann pausieren – danach spielt hover richtig ab
+      hoverSound.play().then(() => {
+        hoverSound.pause();
+        hoverSound.currentTime = 0;
+      }).catch(e => {
+        console.log('Sound-Autoplay verhindert:', e);
+      });
+    }
+  });
+</script>
+<script>
+  const hoverSound = document.getElementById('hover-sound');
+  const navLinks = document.querySelectorAll('.main-nav a');
+
+  function initHoverSound() {
+    hoverSound.volume = 0.5;
+
+    // „Warm-up“
+    hoverSound.play().then(() => {
+      hoverSound.pause();
+      hoverSound.currentTime = 0;
+    });
+
+    // Hover-Effekt aktivieren
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+
+    // 👉 Bonus-Tipp: Log in die Konsole
+    console.log("✅ Hover-Sound wurde freigegeben und aktiviert!");
+  }
+
+  // Erst nach User-Interaktion aktivieren
+  if (sessionStorage.getItem('audioAllowed') === 'true') {
+    document.addEventListener('click', () => {
+      initHoverSound();
+    }, { once: true });
+  }
+</script>
+<script>
+  const hoverSound = document.getElementById('hover-sound');
+  const navLinks = document.querySelectorAll('.main-nav a');
+  const overlay = document.getElementById('start-overlay');
+  const startBtn = document.getElementById('start-btn');
+
+  function enableHoverSound() {
+    hoverSound.volume = 0.5;
+    hoverSound.play().then(() => {
+      hoverSound.pause();
+      hoverSound.currentTime = 0;
+      console.log("✅ Hover-Sound ready.");
+    }).catch(e => {
+      console.log("⚠️ Autoplay Blocked:", e);
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play();
+      });
+    });
+  }
+
+  startBtn.addEventListener('click', () => {
+    sessionStorage.setItem('audioAllowed', 'true');
+    enableHoverSound();
+
+    // Overlay ausblenden
+    overlay.style.display = 'none';
+  });
+</script>
+<script>
+  document.getElementById('start-button').addEventListener('click', () => {
+    sessionStorage.setItem('audioAllowed', 'true');
+    document.getElementById('start-overlay').style.display = 'none';
+
+    const hoverSound = document.getElementById('hover-sound');
+    if (hoverSound) {
+      hoverSound.volume = 0.5;
+      hoverSound.play().then(() => {
+        hoverSound.pause();
+        hoverSound.currentTime = 0;
+      });
+    }
+  });
+</script>
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".main-nav ul li a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset >= sectionTop - 100) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("nav-active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("nav-active");
+      }
+    });
+  });
+</script>
+</body>
+</html>

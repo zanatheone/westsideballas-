@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <title>Westside Ballas – Entstehung</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      
+    }
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 1.8rem;
+  color: #c678ff;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 18px;
+  border-radius: 12px;
+  z-index: 1000;
+  box-shadow: 0 0 10px #c678ff;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+  font-family: 'WestsideBallas', sans-serif;
+  letter-spacing: 1px;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #c678ff;
+  background: rgba(198, 120, 255, 0.1);
+}
+
+
+    .background-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      z-index: -1;
+      overflow: hidden;
+      filter: blur(20px) brightness(0.3);
+    }
+
+    .background-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .content-wrapper:hover .content-block {
+      opacity: 0.4;
+      filter: brightness(0.6);
+      transition: all 0.3s ease;
+    }
+
+    .content-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 10%;
+      gap: 40px;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .content-block.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .content-wrapper .content-block:hover {
+      opacity: 1 !important;
+      filter: brightness(1) !important;
+      transform: scale(1.02);
+      z-index: 2;
+      position: relative;
+    }
+.hood-headline {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 100px;
+  font-family: 'WestsideBallas', cursive;
+  color: #c56eff;
+  text-shadow:
+    0 0 2px #c56eff,
+    0 0 4px #a637ff,
+    0 0 6px #a637ff;
+}
+
+    .image img {
+      max-width: 40%;
+      border: 2px solid white;
+      transition: all 0.6s ease;
+      will-change: transform, opacity, filter;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .text {
+      flex: 1;
+      font-size: 1.2rem;
+    }
+
+    .image {
+      flex: 1;
+    }
+
+    .left {
+      order: 1;
+    }
+    .right {
+      order: 2;
+    }
+
+    @media (max-width: 768px) {
+      .content-block {
+        flex-direction: column;
+        text-align: center;
+      }
+      .left, .right {
+        order: initial;
+      }
+    }
+  </style>
+</head>
+<body>
+<a class="back-button" href="bloodin.html">← Zurück</a>
+  <!-- Hintergrund -->
+  <div class="background-grid">
+    <img src="images/image1.jpg" alt="">
+    <img src="images/image2.jpg" alt="">
+    <img src="images/image3.jpg" alt="">
+    <img src="images/image4.jpg" alt="">
+    <img src="images/image5.jpg" alt="">
+    <img src="images/image6.jpg" alt="">
+    <img src="images/image7.jpg" alt="">
+    <img src="images/image8.jpg" alt="">
+    <img src="images/image9.jpg" alt="">
+    <img src="images/image10.jpg" alt="">
+    <img src="images/image11.jpg" alt="">
+    <img src="images/image12.jpg" alt="">
+    <img src="images/image13.jpg" alt="">
+    <img src="images/image14.jpg" alt="">
+    <img src="images/image15.jpg" alt="">
+  </div>
+<h1 class="hood-headline">Geschichte</h1>
+
+  <!-- Inhalt -->
+  <div class="content-wrapper">
+    <section class="content-block">
+      <div class="image left">
+        <img src="images/geschichte1.jpg" alt="Ein Bild zur Ganggeschichte">
+      </div>
+      <div class="text right">
+        <p>Die Ballas Gang entstand in den 1970er Jahren und ist das Produkt einer gespaltenen Community. Die Ursprungslocation Los Santos war unterteilt in mehreren Gebieten, worin die Ballas einen Zusammenschluss durch die Verbindung dieser Gebiete erzielten. Zunehmend gerieten weiter in den Vordergrund, wodurch Interessenskonflikte mit anderen gangs entstanden</p>
+      </div>
+    </section>
+
+    <section class="content-block">
+      <div class="text left">
+        <p>Hauptkontrahent in Los Santos waren die Grove Street Families, die zunehmend von der Ballas dominiert worden sind, wodurch die Ballas immer stärker und besser aufgestellt war. Diverse Geschäfte waren übermäßig in der Hand der Ballas Gang, mithilfe von den Vagos und einer korrupten Polizei Einheit Namens C.R.A.S.H.</p>
+      </div>
+      <div class="image right">
+        <img src="images/geschichte2.jpg" alt="Ein Bild zur Ganggeschichte">
+      </div>
+    </section>
+
+    <section class="content-block">
+      <div class="image left">
+        <img src="images/geschichte3.jpg" alt="Ein Bild zur Ganggeschichte">
+      </div>
+      <div class="text right">
+        <p>Nachdem die Ballas Gang weite Teile in Kontrolle nahmen und die Rivalen überwiegend ausschalteten, entstanden Konflikte innerhalb der Ballas, besonders nach dem Tod der Führungsmächten Ryder und Big Smoke. Wodurch Big Smoke eher am Ende der Ballas Geschichte den Tod fand, nachdem die Grove Street Families aus dem Exil heraus verschiedene Labore, Verbindungspartner und die Finanzierung der Ballas zerstört haben, so starb auch langsam die Ballas Gang. </p>
+
+      </div>
+    </section>
+  </div>
+
+ 
+
+  <!-- Scripts -->
+  <script>
+    const blocks = document.querySelectorAll('.content-block');
+
+    function revealOnScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      blocks.forEach(block => {
+        const top = block.getBoundingClientRect().top;
+        const img = block.querySelector('img');
+
+        if (top < triggerBottom) {
+          block.classList.add('visible');
+          if (img) {
+            img.style.opacity = "1";
+            img.style.transform = "scale(1)";
+            img.style.filter = "blur(0px)";
+          }
+        } else {
+          block.classList.remove('visible');
+          if (img) {
+            const distance = triggerBottom - top;
+            const ratio = Math.min(1, Math.max(0, 1 - distance / 200));
+            img.style.opacity = `${1 - ratio * 0.4}`;
+            img.style.transform = `scale(${1 - ratio * 0.05})`;
+            img.style.filter = `blur(${ratio * 2}px)`;
+          }
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hoverSound = document.getElementById('hover-sound');
+
+      if (sessionStorage.getItem('audioAllowed') === 'true') {
+        hoverSound.volume = 0.5;
+
+        // Sound vorbereiten
+        hoverSound.play().then(() => {
+          hoverSound.pause();
+          hoverSound.currentTime = 0;
+        }).catch(e => {
+          console.log("Autoplay blockiert:", e);
+        });
+
+        // Hover-Sound auf alle Links und Content-Elemente anwenden
+        document.querySelectorAll('a, .content-block').forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            hoverSound.currentTime = 0;
+            hoverSound.play();
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -199,26 +199,36 @@ overflow-y: auto;
 }
 
 .bloodin-btn {
-  position: relative;
-  padding: 12px 30px;
-  background-color: #7c3aed;
-  color: white;
+  font-family: 'WestsideBallas', sans-serif;
+  font-size: 28px;
+  color: #d19eff;
+  padding: 12px 28px;
+  border: 2px solid #d19eff;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.6);
   text-decoration: none;
-  font-size: 1.2em;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #9333ea;
-  transition: transform 0.3s, background-color 0.3s;
-  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-shadow:
+    0 0 4px #b366ff,
+    0 0 6px #b366ff,
+    0 0 10px #6600cc;
+  box-shadow: 0 0 12px rgba(179, 102, 255, 0.4);
+  letter-spacing: 2px;
 }
 
 .bloodin-btn:hover {
-  background-color: #9333ea;
-  transform: scale(1.1);
+  background: rgba(60, 0, 90, 0.6);
+  transform: scale(1.05);
+  box-shadow:
+    0 0 12px #b366ff,
+    0 0 20px #cc99ff,
+    0 0 30px #9933ff;
 }
 /* Navigation */
 .main-nav {
   position: absolute;
-  top: 50%;
+  top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
@@ -240,8 +250,8 @@ overflow-y: auto;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column; /* vertikal */
-  gap: 25px; /* Abstand zwischen Links */
+  flex-direction: column;
+  gap: 5px; /* vorher 25px */
   align-items: center;
 }
 
@@ -392,4 +402,12 @@ overflow-y: auto;
 .back-button:hover {
   background-color: rgba(255, 0, 0, 1);
   transform: scale(1.05);
+}
+.signature {
+  font-family: 'WestsideBallas', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 1px;
 }
